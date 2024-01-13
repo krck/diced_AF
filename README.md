@@ -6,16 +6,19 @@ Using a Arduino UNO 3
 - Future plan: Handheld Dice-Roller Device
 
 ## Setup (Linux)
-Development is done as "bare bones" as possible. No Arduino IDE, no Atmel Studio. Keep the toolchain simple without any bloated installations. But a few packages/libs are needed:
+Development is done "bare bones, but with some reasonable comfort", to keep the toolchain simple and avoid bloated installations. No full Arduino IDE. No Atmel Studio. The core setup is just VS Code with the following extensions:
+- C/C++
+- PlatformIO (needed for debugging)
+
+These packages/libs are needed for manually compiling/flashing (without PlatformIO). Also add the "avr" library as a header include path in VS Code (prob.: `/usr/lib/avr`):
 - binutils
 - gcc-avr
+- gdb-avr
 - avr-libc
 - avrdude
 
-Add the "avr" library as a header include path in the editor or in the compiler command (prob.: `/usr/lib/avr`)
-
 ## Compile
-First compile the C code into a Hex file. Commands are prefilled for the Arduino UNO 3 (Atmega328p / 16000000UL):
+These steps are needed for manually compiling the program and flashing it onto the Arduino Uno. First compile the C code into a Hex file. Commands are prefilled for the Arduino UNO 3 (Atmega328p / 16000000UL):
 
 ```
 > avr-gcc -g -DF_CPU=16000000UL -Os -mmcu=atmega328p -c src/main.c -o bin/main.o
