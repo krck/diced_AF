@@ -8,47 +8,19 @@
         {
             "name": "PlatformIO",
             "includePath": [
-                "/home/peter/Projects/diced_AF/src",
-                "/home/peter/Projects/diced_AF/.pio/libdeps/uno/avr-debugger/avr8-stub",
-                "/home/peter/.platformio/packages/framework-arduino-avr/cores/arduino",
-                "/home/peter/.platformio/packages/framework-arduino-avr/variants/standard",
-                "/home/peter/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
-                "/home/peter/.platformio/packages/framework-arduino-avr/libraries/HID/src",
-                "/home/peter/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
-                "/home/peter/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
-                "/home/peter/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
-                ""
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/lib/**",
+                "${workspaceFolder}/lib/avr-debugger"
             ],
-            "browse": {
-                "limitSymbolsToIncludedHeaders": true,
-                "path": [
-                    "/home/peter/Projects/diced_AF/src",
-                    "/home/peter/Projects/diced_AF/.pio/libdeps/uno/avr-debugger/avr8-stub",
-                    "/home/peter/.platformio/packages/framework-arduino-avr/cores/arduino",
-                    "/home/peter/.platformio/packages/framework-arduino-avr/variants/standard",
-                    "/home/peter/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
-                    "/home/peter/.platformio/packages/framework-arduino-avr/libraries/HID/src",
-                    "/home/peter/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
-                    "/home/peter/.platformio/packages/framework-arduino-avr/libraries/SoftwareSerial/src",
-                    "/home/peter/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
-                    ""
-                ]
-            },
-            "defines": [
-                "PLATFORMIO=60113",
-                "ARDUINO_AVR_UNO",
-                "F_CPU=16000000L",
-                "ARDUINO_ARCH_AVR",
-                "ARDUINO=10808",
-                "__AVR_ATmega328P__",
-                ""
-            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/avr-gcc",
             "cStandard": "gnu11",
-            "cppStandard": "gnu++11",
-            "compilerPath": "/home/peter/.platformio/packages/toolchain-atmelavr/bin/avr-gcc",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64",
             "compilerArgs": [
                 "-mmcu=atmega328p",
-                ""
+                "-DF_CPU=16000000UL",
+                "-Os"
             ]
         }
     ],
