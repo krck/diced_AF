@@ -11,23 +11,23 @@
             "launchCompleteCommand": "None",
             "preLaunchTask": "make all",
             "program": "${workspaceFolder}/bin/main.elf",
-            // "args": [],
-            // "stopAtEntry": false,
+            "args": [],
+            "environment": [],
+            "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
-            // "environment": [],
-            // "externalConsole": false,
+            "externalConsole": true,
             "MIMode": "gdb",
             "miDebuggerPath": "/usr/bin/avr-gdb",
             "miDebuggerServerAddress": "/dev/ttyACM0",
             "setupCommands": [
                 {
                     "description": "Set baud rate",
-                    "text": "-gdb-set serial baud 115200",
+                    "text": "set serial baud 115200",
                     "ignoreFailures": false
                 },
                 {
                     "description": "Remote debug enable",
-                    "text": "-gdb-set debug remote 1",
+                    "text": "set debug remote 1",
                     "ignoreFailures": false
                 }
             ]

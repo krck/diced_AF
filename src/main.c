@@ -1,17 +1,8 @@
-#include "avr_debugger.h"
+#include <stdlib.h>
+
 #include "config.h"
 #include "helper.h"
-
-#define BAUD 115200
-#define BAUDRATE ((F_CPU) / (BAUD * 16UL) - 1)  // Set baud rate value for UBRR
-
-// Set up the UART (Universal Asynchronous Receiver/Transmitter) for serial communication
-void uart_init(void) {
-    UBRR0H = (BAUDRATE >> 8);                 // Shift the register right by 8 bits
-    UBRR0L = BAUDRATE;                        // Set baud rate
-    UCSR0B |= (1 << TXEN0) | (1 << RXEN0);    // Enable receiver and transmitter
-    UCSR0C |= (1 << UCSZ00) | (1 << UCSZ01);  // 8bit data format
-}
+#include "avr8-stub.h"
 
 int main(void) {
     // -------------------------------------------------------
@@ -20,11 +11,6 @@ int main(void) {
     // The LED is connected to PORT B on PIN 5
     // -------------------------------------------------------
 
-    uart_init();
-    debug_init();
-
-    // 1.
-    // ...
     debug_init();
 
     // 2.
@@ -36,11 +22,17 @@ int main(void) {
     // 3.
     // Start an endless loop of blinking the LED
     // (Alternate PIN 5 on PORT B between 1 and 0 with a small delay)
+    int count = 0;
+    char strCount[5];
     while(1) {
+        breakpoint();
         PORTB = setBit(PORTB, 5);
         _delay_ms(500);
 
         PORTB = clearBit(PORTB, 5);
         _delay_ms(500);
+
+        itoa(++count, strCount, 10);
+        debug_message(strCount);
     }
 }
