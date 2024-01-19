@@ -1,0 +1,36 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "ACM0 (gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "launchCompleteCommand": "None",
+            "preLaunchTask": "make all",
+            "program": "${workspaceFolder}/bin/main.elf",
+            "args": [],
+            "environment": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/avr-gdb",
+            "miDebuggerServerAddress": "/dev/ttyACM0",
+            "setupCommands": [
+                {
+                    "description": "Set baud rate",
+                    "text": "set serial baud 115200",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Remote debug enable",
+                    "text": "set debug remote 1",
+                    "ignoreFailures": false
+                }
+            ]
+        }
+    ]
+}

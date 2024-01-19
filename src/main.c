@@ -1,10 +1,8 @@
+#include <stdlib.h>
 
-// #include <Arduino.h>
-
-#include "app_api.h"  // only needed with flash breakpoints
-#include "avr8-stub.h"
 #include "config.h"
 #include "helper.h"
+#include "avr8-stub.h"
 
 int main(void) {
     // -------------------------------------------------------
@@ -13,8 +11,6 @@ int main(void) {
     // The LED is connected to PORT B on PIN 5
     // -------------------------------------------------------
 
-    // 1.
-    // ...
     debug_init();
 
     // 2.
@@ -26,11 +22,17 @@ int main(void) {
     // 3.
     // Start an endless loop of blinking the LED
     // (Alternate PIN 5 on PORT B between 1 and 0 with a small delay)
+    int count = 0;
+    char strCount[5];
     while(1) {
+        breakpoint();
         PORTB = setBit(PORTB, 5);
         _delay_ms(500);
 
         PORTB = clearBit(PORTB, 5);
         _delay_ms(500);
+
+        itoa(++count, strCount, 10);
+        debug_message(strCount);
     }
 }
